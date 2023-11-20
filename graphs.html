@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MONITORINGS</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/nav.css"/>
+    <link rel="stylesheet" href="css/footer.css"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.2/chart.umd.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.2/chart.umd.js"></script>
+    <style>
+        body {
+            padding: 30px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top">
+    <div class="container">
+        <ul class="navbar-nav ">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html"><img src="faviconw.ico" style="width: 25px"></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#mac">Mac</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#iphone">iPhone</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#watch">Watch</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#airpods">Airpods</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#ipad">iPad</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#accessories">Accessories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="user.html"><img src="user.ico" style="width: 25px"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div>
+    <h1 style="color:green">Badgat Store</h1>
+    <h3>SOLD PRODUCTS</h3>
+    <div>
+        <canvas id="barChartID" ></canvas>
+    </div>
+    <div>
+        <canvas id="lineChartID"></canvas>
+    </div>
+    <div>
+        <canvas id="pieChartID" width="300" height="300"></canvas>
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Define data for the bar chart
+        const barChartData = {
+            labels: ['Mac', 'iPhone', 'Watch', 'Airpods', 'iPad'],
+            datasets: [
+                {
+                    label: 'Units Sold',
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                    ],
+                    data: [26000, 22500, 54000, 60000, 4000],
+                },
+            ],
+        };
+
+        // Get the canvas element where you want to display the bar chart
+        const barChartCanvas = document.getElementById('barChartID');
+
+        if (barChartCanvas) {
+            // Create the bar chart
+            new Chart(barChartCanvas, {
+                type: 'bar',
+                data: barChartData,
+                options: {
+                    plugins: {
+                        legend: {
+                            display: true,
+                        },
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                        },
+                        y: {
+                            beginAtZero: true,
+                        },
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    title: {
+                        display: true,
+                        text: 'Bar Chart using ChartJS library',
+                    },
+                },
+            });
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Define data for the line chart
+        const lineChartData = {
+            labels: ['January', 'February', 'March', 'April', 'May'],
+            datasets: [
+                {
+                    label: 'Monthly Sales',
+                    data: [26000, 22500, 54000, 60000, 4000],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    fill: false,
+                },
+            ],
+        };
+
+        // Get the canvas element where you want to display the line chart
+        const lineChartCanvas = document.getElementById('lineChartID');
+
+        if (lineChartCanvas) {
+            // Create the line chart
+            new Chart(lineChartCanvas, {
+                type: 'line',
+                data: lineChartData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    title: {
+                        display: true,
+                        text: 'Pie Chart using ChartJS library',
+                    },
+                },
+
+            });
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded',
+        function () {
+            // Define data for the pie chart
+            const pieChartData = {
+                labels: ['Mac', 'iPhone', 'Watch', 'Airpods', 'iPad'],
+                datasets: [
+                    {
+                        data: [26, 225, 54, 60, 40],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 206, 86, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(153, 102, 255, 0.6)',
+                        ],
+                    },
+                ],
+            };
+
+// Get the canvas element where you want to display the pie chart
+            const pieChartCanvas = document.getElementById('pieChartID');
+
+            if (pieChartCanvas) {
+                // Create the pie chart
+                new Chart(pieChartCanvas, {
+                    type: 'pie',
+                    data: pieChartData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        title: {
+                            display: true,
+                            text: 'Pie Chart using ChartJS library',
+                        },
+                    },
+                });
+            }
+        })
+
+</script>
+<footer>
+    <div class="footer-contact">
+        <p>More ways to shop: visit an <a href="#">Bagdat Store, </a>Call 8776-329-99-61</p>
+    </div>
+    <div class="footer-copyright">
+        <p>Copyright ©. All rights reserved.</p>
+
+        <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <div class="vr"></div>
+            <li><a href="#">Terms of Use</a></li>
+            <div class="vr"></div>
+            <li><a href="#">Sales and Refunds</a></li>
+            <div class="vr"></div>
+            <li><a href="#">Legal</a></li>
+            <div class="vr"></div>
+            <li><a href="tv.html">Apple TV+</a></li>
+            <div class="vr"></div>
+            <li><a href="#">Sitemap</a></li>
+        </ul>
+        <div class="footer-lang">
+            <div class="circle">
+                <img src="favicon.ico">
+            </div>
+            <p>KAZ</p>
+            <div class="vr"></div>
+            <p>Bagdat Store</p>
+        </div>
+    </div>
+    </div>
+</footer>
+<script src="/js/tool-tip.js"></script>
+<script src="/js/scroll.js"></script>
+
+
+
+</body>
+</html>
